@@ -1,5 +1,5 @@
-
 using CompanyEmployees.Extensions;
+using AutoMapper;
 
 namespace CompanyEmployees
 {
@@ -16,7 +16,8 @@ namespace CompanyEmployees
             builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureServiceManager();
             builder.Services.ConfigureNpgsqlContext(builder.Configuration);
-
+            // AutoMapper 12+
+            builder.Services.AddAutoMapper(cfg => cfg.AddMaps(typeof(Program).Assembly));
 
             builder.Services.AddControllers()
                 .AddApplicationPart(typeof(CompanyEmployees.Presentation.AssemblyReference).Assembly);
