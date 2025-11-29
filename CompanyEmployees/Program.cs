@@ -13,6 +13,10 @@ namespace CompanyEmployees
 
             builder.Services.ConfigureCors();
             builder.Services.ConfigureIISIntegration();
+            builder.Services.ConfigureRepositoryManager();
+            builder.Services.ConfigureServiceManager();
+            builder.Services.ConfigureNpgsqlContext(builder.Configuration);
+
 
             builder.Services.AddControllers();
 
