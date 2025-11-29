@@ -26,10 +26,15 @@ namespace CompanyEmployees
 
             // Configure the HTTP request pipeline.
 
-            if (app.Environment.IsDevelopment())
-                app.UseDeveloperExceptionPage();
-            else
-                app.UseHsts();
+            //var logger = app.Services.GetRequiredService<ILoggerManager>();
+            app.ConfigureExceptionHandler();
+            //if (app.Environment.IsProduction())
+            //    app.UseHsts();
+
+            //if (app.Environment.IsDevelopment())
+            //    app.UseDeveloperExceptionPage();
+            //else
+                //app.UseHsts();
 
 
             app.UseHttpsRedirection();
